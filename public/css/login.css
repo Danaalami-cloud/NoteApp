@@ -1,4 +1,4 @@
-.center {
+/* .center {
     display: flex;
     align-items: center;
     background-color: rgba(141, 248, 212, 0.596);
@@ -8,20 +8,47 @@
     justify-content: center;
     align-items: center;
     margin-left: 30%;
-}
+} */
 
 .signup {
     display: none;
 }
 
-.icon {
+.login-width {
+    max-width: 300px !important;
+}
+
+.forgottenPassword {
+    text-align: right;
+    font-size: 0.7rem;
+}
+
+.backgroundColour {
+    background-color: rgba(141, 248, 212, 0.596) !important;
+}
+
+.signInColour {
+    background-color: rgba(143, 141, 248, 0.596) !important;
+}
+
+.signUpColour {
+    background-color: rgba(141, 248, 212, 0.596)!important;
+    border: none !important;
+}
+
+.or {
+    text-align: center;
+    font-size: 0.7rem;
+}
+
+/* .icon {
     justify-content: center;
     align-items: center;
     margin-left: 45%;
     height: 200%;
     width: 200%;
-}
+} */
 
-.form-input {
-    j
-}
+/* .form-input {
+    
+} */
