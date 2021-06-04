@@ -1,3 +1,4 @@
+
 function showSignUpCard(event) {
   event.preventDefault();
   document.getElementById('signup').style.display = "block";
@@ -6,8 +7,8 @@ function showSignUpCard(event) {
 }
 
 document
-  .querySelector('.signIn')
-  .addEventListener('submit', showSignUpCard);
+  .querySelector('.createAnAccountBtn')
+  .addEventListener('click', showSignUpCard);
 
 
 /* const loginFormHandler = async (event) => {
