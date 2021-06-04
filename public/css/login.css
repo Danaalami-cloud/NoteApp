@@ -31,9 +31,13 @@
     background-color: rgba(143, 141, 248, 0.596) !important;
 }
 
-.signUpColour {
+.createAccountColour {
     background-color: rgba(141, 248, 212, 0.596)!important;
     border: none !important;
+}
+
+.signUpColour {
+    background-color: rgba(143, 141, 248, 0.596) !important;
 }
 
 .or {

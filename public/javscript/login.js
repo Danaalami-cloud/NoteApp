@@ -1,4 +1,16 @@
-const loginFormHandler = async (event) => {
+function showSignUpCard(event) {
+  event.preventDefault();
+  document.getElementById('signup').style.display = "block";
+  document.getElementById('signIn').style.display = "none";
+  console.log("hi");
+}
+
+document
+  .querySelector('.signIn')
+  .addEventListener('submit', showSignUpCard);
+
+
+/* const loginFormHandler = async (event) => {
     event.preventDefault();
   
     // Collect values from the login form
@@ -50,5 +62,5 @@ const loginFormHandler = async (event) => {
   
   document
     .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+    .addEventListener('submit', signupFormHandler); */
   
