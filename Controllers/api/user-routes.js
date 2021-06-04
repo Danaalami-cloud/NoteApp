@@ -40,38 +40,39 @@ router.post('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-//POST login route
-/* router.post('/login', async (req, res) => {
-  try {
-    const dbUserData = await User.findOne({ where: { email: req.body.email } });
-    console.log(req.body.password);
-    if (!dbUserData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email, please try again' });
+/* 
+// POST /api/users/login -- login route for a user
+router.post('/login',  (req, res) => {
+  // findOne method by email to look for an existing user in the database with the email address entered
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  User.findOne({
+      where: {
+      email: req.body.email
+      }
+  }).then(userData => {
+      // if the email is not found, return an error
+      if (!userData) {
+      res.status(400).json({ message: 'No user with that email address!' });
       return;
-    }
-
-    const validPassword = await dbUserData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect password, please try again' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.logged_in = true;
-      
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
-    });
-
-  } catch (err) {
-    res.status(400).json(err);
-  }
+      }
+      // Otherwise, verify the user.
+      // call the instance method as defined in the User model
+      const validPassword = userData.checkPassword(req.body.password);
+      // if the password is invalid (method returns false), return an error
+      if (!validPassword) {
+          res.status(400).json({ message: 'Incorrect password!' });
+          return;
+      }
+      // otherwise, save the session, and return the user object and a success message
+      req.session.save(() => {
+        // declare session variables
+        req.session.user_id = userData.id;
+        req.session.username = userData.username;
+        req.session.loggedIn = true;
+  
+        res.json({ user: userData, message: 'You are now logged in!' });
+      });
+  });  
 }); */
 
 
