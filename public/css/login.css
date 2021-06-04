@@ -1,0 +1,27 @@
+.center {
+    display: flex;
+    align-items: center;
+    background-color: rgba(141, 248, 212, 0.596);
+}
+
+.middle {
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+}
+
+.signup {
+    display: none;
+}
+
+.icon {
+    justify-content: center;
+    align-items: center;
+    margin-left: 45%;
+    height: 200%;
+    width: 200%;
+}
+
+.form-input {
+    j
+}
