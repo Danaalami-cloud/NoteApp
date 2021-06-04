@@ -1,7 +1,20 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const User = require('../../models');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-router.post('/', async (req, res) => {
+router.get('/', (req,res) => {
+  User.findAll({
+    attributes: {exclude: ['password'] }
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+})
+
+/* router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -56,6 +69,6 @@ router.post('/logout', (req, res) => {
   } else {
     res.status(404).end();
   }
-});
+}); */
 
 module.exports = router;
