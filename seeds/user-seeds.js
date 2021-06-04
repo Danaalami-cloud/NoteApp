@@ -4,7 +4,7 @@ const userData = [
   {
     id: 1,
     name: "Freddie",
-    email: "freddiebrewin@live.com ",
+    email: "freddiebrewin@live.com",
     password: "password1234"
   },
   {
