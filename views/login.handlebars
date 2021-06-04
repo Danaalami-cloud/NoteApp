@@ -1,7 +1,7 @@
 <div> 
   <div class="row container login-width signIn" id = "signIn">
     <div class="login-box">
-      <form class="box backgroundColour">
+      <form class="box backgroundColour login-form">
         {{!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 130">
           <defs>
             <style>.cls-1,.cls-2{fill:none;}.cls-2{stroke:#54509e;stroke-width:8px;}.cls-3{fill:#54509e;}</style>
@@ -21,23 +21,23 @@
           </g>
         </svg> --}}
         <div class="field">
-          <label class="label">Email</label>
+          <label for="email-login" class="label">Email</label>
           <div class="control">
-            <input class="input" type="email" placeholder="e.g. alex@example.com">
+            <input id="email-login" class="input" type="email" placeholder="e.g. alex@example.com">
           </div>
         </div>
 
         <div class="field">
-          <label class="label">Password</label>
+          <label for="password-login" class="label">Password</label>
           <div class="control">
-            <input class="input" type="password" placeholder="********">
+            <input id="password-login" class="input" type="password" placeholder="********">
           </div>
         </div>
         <div class="forgottenPassword">
           <a  href="">Forgotten password? </a><br>
         </div>
         
-        <button class="button is-fullwidth signInColour">Sign in</button>
+        <button class="button is-fullwidth signInColour signInButton">Sign in</button>
         <div class ="or" >
           <a>or</a>
         </div>
@@ -69,27 +69,27 @@
         </g>
       </svg> --}}
       <div class="field">
-        <label class="label">Name</label>
-        <div class="control">
-          <input class="input" type="email" placeholder="e.g. Freddie Brewin">
+        <label for="name-signup" class="label">Name</label>
+        <div class=" control">
+          <input id="name-signup"  class=" form-input input" type="email" placeholder="e.g. Freddie Brewin">
         </div>
       </div>
 
       <div class="field">
-        <label class="label">Email</label>
+        <label for="email-signup" class="label">Email</label>
         <div class="control">
-          <input class="input" type="email" placeholder="e.g. alex@example.com">
+          <input id="email-signup" class="form-input input" type="email" placeholder="e.g. alex@example.com">
         </div>
       </div>
 
       <div class="field">
-        <label class="label">Password</label>
+        <label for="password-signup" class="label">Password</label>
         <div class="control">
-          <input class="input" type="password" placeholder="********">
+          <input id="password-signup" class="input form-input" type="password" placeholder="********">
         </div>
       </div>
       
-      <button class="button is-fullwidth signUpColour">Sign up</button>
+      <button class="button is-fullwidth signUpColour signUpBtn">Sign up</button>
       
     </form>
   </div>
