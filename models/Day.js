@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Day extends Model {}
 
+
 Day.init(
   {
     id: {
@@ -11,9 +12,10 @@ Day.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    date: {
+    current_date: {
       type: DataTypes.DATE,
       allowNull:false,
+      defaultValue: DataTypes.NOW,
     }
   },
   {

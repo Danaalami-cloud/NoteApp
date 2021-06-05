@@ -45,6 +45,12 @@
     font-size: 0.7rem;
 }
 
+.svgPic {
+    height: 50% !important;
+    width: 50% !important;
+    margin-left: 25%;
+}
+
 /* .icon {
     justify-content: center;
     align-items: center;

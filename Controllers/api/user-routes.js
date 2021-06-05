@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const User = require('../../models');
+const { User } = require('../../models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 //Get all user data route
- router.get('/', (req,res) => {
+router.get('/', (req,res) => {
   User.findAll({
     attributes: {exclude: ['password'] } //exclude the password
   })
@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-/* 
+
 // POST /api/users/login -- login route for a user
 router.post('/login',  (req, res) => {
   // findOne method by email to look for an existing user in the database with the email address entered
@@ -58,6 +58,7 @@ router.post('/login',  (req, res) => {
       // Otherwise, verify the user.
       // call the instance method as defined in the User model
       const validPassword = userData.checkPassword(req.body.password);
+      console.log(validPassword);
       // if the password is invalid (method returns false), return an error
       if (!validPassword) {
           res.status(400).json({ message: 'Incorrect password!' });
@@ -73,7 +74,7 @@ router.post('/login',  (req, res) => {
         res.json({ user: userData, message: 'You are now logged in!' });
       });
   });  
-}); */
+});
 
 
 module.exports = router;

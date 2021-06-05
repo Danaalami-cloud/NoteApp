@@ -1,4 +1,3 @@
-
 function showSignUpCard(event) {
   event.preventDefault();
   document.getElementById('signup').style.display = "block";
