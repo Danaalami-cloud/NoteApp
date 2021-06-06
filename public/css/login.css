@@ -51,6 +51,20 @@
     margin-left: 25%;
 }
 
+.textAlign{
+    text-align: center;
+}
+/* .inputWidth {
+    width: 50% !important;
+} */
+
+.alignRight{
+    margin-left: 30%;
+}
+
+.alignLeft {
+    margin-right: 45%;
+}
 /* .icon {
     justify-content: center;
     align-items: center;
