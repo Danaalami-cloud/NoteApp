@@ -1,55 +1,101 @@
 <div class="columns">
 
   <div class="column is-two-fifths">
+
     <div class="card">
-    <div class="card-content">
-        <p> hello {{entrys.[0].water}} </p>
-    </div>
-    {{!-- <div class="card-content">
-        <p class="title">
-        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-        </p>
-        <p class="subtitle">
-        Jeff Atwood
-        </p>
-    </div>
-    <div class="card-content">
-        <p class="title">
-        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-        </p>
-        <p class="subtitle">
-        Jeff Atwood
-        </p>
-    </div>
-    <div class="card-content">
-        <p class="title">
-        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-        </p>
-        <p class="subtitle">
-        Jeff Atwood
-        </p>
-    </div>
-    <div class="card-content">
-        <p class="title">
-        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-        </p>
-        <p class="subtitle">
-        Jeff Atwood
-        </p>
-    </div>
-    <div class="card-content">
-        <p class="title">
-        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
-        </p>
-        <p class="subtitle">
-        Jeff Atwood
-        </p>
-    </div>
-    
-    </div> --}}
+
+      <div class="box card-content textAlign">
+          <p> Welcome to the NoteApp {{entrys.[0].user.name}}  </p>
+          <p>Current date selected: {{format_date entrys.[0].current_date}}</p>
+      </div>
+
+      <div class="card-content textAlign box">
+          <form>
+            <div class="field">
+              <label class="label">How much water did you drink last today?</label>
+              <div class="columns">
+                <div class="column is-one-fifth alignRight ">
+                  <input class="input inputWidth" type="email" placeholder="glasses">
+                </div> 
+                <div class="column alignLeft">
+                  <button class="button is-primary">Confirm</button>
+                </div>
+              </div>
+            </div>
+          <p class="subtitle">
+          You drank {{entrys.[0].water}} glasses of water today
+          </p>
+          </form> 
+          <p class="subtitle">
+          
+          </p>
+      </div>
+
+      <div class="card-content textAlign box">
+          <form>
+
+            <div class="field">
+              <label class="label">How much exercise did you do today?</label>
+              
+              <div class="columns">
+                
+                <div class="column is-one-fifth alignRight ">
+                  <input class="input inputWidth" type="email" placeholder="minutes">
+                </div>
+                
+                <div class="column alignLeft">
+                  <button class="button is-primary">Confirm</button>
+                </div>
+              
+              </div>
+            
+            </div>
+          <p class="subtitle">
+          You did {{entrys.[0].exercise}} minutes of exercise today
+          </p>
+          </form>   
+      </div>
+      <div class="card-content textAlign box">
+          <form class="box">
+            <div class="field">
+              <label class="label">How much sleep did you get last night?</label>
+              <div class="columns">
+                <div class="column is-one-fifth alignRight ">
+                  <input class="input inputWidth" type="email" placeholder="minutes">
+                </div>
+                <div class="column alignLeft">
+                  <button class="button is-primary">Confirm</button>
+                </div>
+              </div> 
+            </div>
+          <p class="subtitle">
+          You had {{entrys.[0].sleep}} minutes of sleep last night
+          </p>
+          </form> 
+      </div>
+
+      <div class="card-content textAlign">
+          <form class="box">
+            <div class="field">
+              <label class="label">What was you average mood today?</label>
+              <div class="columns"> 
+                <div class="column is-one-fifth alignRight ">
+                  <input class="input inputWidth" type="email" placeholder="/10">
+                </div>      
+                <div class="column alignLeft">
+                  <button class="button is-primary">Confirm</button>
+                </div>              
+              </div>
+            </div>
+          <p class="subtitle">
+          You had an aver mood of {{entrys.[0].mood}}/10 today
+          </p>
+          </form> 
+      </div>    
+    </div> 
   </div>
   
-  <div class="column">
+  <div class="column is-three-fifths">
     No gap
   </div>
 </div>
