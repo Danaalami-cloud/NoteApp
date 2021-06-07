@@ -1,12 +1,12 @@
 <div class="columns">
 
-  <div class="column is-two-fifths">
+  <div class="column is-two-fifths container">
 
     <div class="card">
 
       <div class="box card-content textAlign is-gapless">
           <p> Welcome to the NoteApp {{entrys.[0].user.name}}  </p>
-          <p>Current date selected: {{format_date entrys.[0].current_date}}</p>
+          <p>Current date selected: {{format_date entrys.[0].entry_date}}</p>
       </div>
 
       <div class="card-content textAlign box is-gapless">
@@ -95,12 +95,12 @@
     </div> 
   </div>
   
-  <div class="column is-three-fifths">
-    <div class="container">
+  <div class="column is-three-fifths container">
+    <div>
       <div class="calendar">
         <div class="front">
           <div class="current-date">
-            <h1>{{entrys.[0].current_date}}</h1>
+            <h1>{{entrys.[0].entry_date}}</h1>
           </div>
 
           <div class="current-month">

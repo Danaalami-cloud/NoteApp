@@ -1,12 +1,18 @@
 function showSignUpCard(event) {
   event.preventDefault();
-  document.getElementById('signup').style.display = "block";
-  document.getElementById('signIn').style.display = "none";
+  document.location.replace('/signup');
+  /* document.getElementById('signup').style.display = "block";
+  document.getElementById('signIn').style.display = "none"; */
 }
 
-document
-  .querySelector('.createAnAccountBtn')
-  .addEventListener('click', showSignUpCard);
+/* function showSignInCard(event) {
+  event.preventDefault();
+  document.location.replace('/login');
+  document.getElementById('signup').style.display = "block";
+  document.getElementById('signIn').style.display = "none"; 
+} */
+
+
 
 
 const loginFormHandler = async (event) => {
@@ -36,7 +42,7 @@ const loginFormHandler = async (event) => {
   }
 };
   
-const signupFormHandler = async (event) => {
+/* const signupFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#name-signup').value.trim();
@@ -56,12 +62,12 @@ const signupFormHandler = async (event) => {
       alert(response.statusText);
     }
   }
-};
+}; */
   
 document
   .querySelector('.signInButton')
   .addEventListener('click', loginFormHandler);
 
 document
-  .querySelector('.signUpBtn')
-  .addEventListener('click', signupFormHandler);
+  .querySelector('.createAnAccountBtn')
+  .addEventListener('click', showSignUpCard);

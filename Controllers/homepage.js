@@ -10,6 +10,10 @@ router.get('/login', async (req, res) => {
     res.render('login');
 });
 
+router.get('/signup', async (req, res) => {
+  res.render('signup');
+});
+
 /* router.get('/dashboard', async (req, res) => {
     const userData = await User.findOne({
         where: {
@@ -40,7 +44,7 @@ router.get('/dashboard', withAuth, (req, res) => {
       },
       attributes: [
         'id',
-        'current_date',
+        'entry_date',
         'water',
         'exercise',
         'sleep',
@@ -55,7 +59,7 @@ router.get('/dashboard', withAuth, (req, res) => {
     })
       .then(entryData => {
         // serialize data before passing to template
-        console.log(entryData[0].water);
+        /* console.log(entryData[0].water); */
         const entrys = entryData.map(entry => entry.get({ plain: true }));
         console.log(entrys); 
         /* console.log(entryData); */

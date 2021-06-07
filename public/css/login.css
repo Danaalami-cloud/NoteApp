@@ -10,13 +10,10 @@
     margin-left: 30%;
 } */
 
-.signup {
-    display: none;
-}
 
-.login-width {
+/* .login-width {
     max-width: 300px !important;
-}
+} */
 
 .forgottenPassword {
     text-align: right;
@@ -34,6 +31,11 @@
 .createAccountColour {
     background-color: rgba(141, 248, 212, 0.596)!important;
     border: none !important;
+}
+
+.backToLoginColour {
+  background-color: rgba(141, 248, 212, 0.596)!important;
+  border: none !important;
 }
 
 .signUpColour {
