@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const withAuth = require('../../utils/auth');
 
 //Get all user data route
 router.get('/', (req,res) => {
@@ -75,6 +76,20 @@ router.post('/login',  (req, res) => {
       });
   });  
 });
+
+//Logout route
+router.post('/logout', withAuth, (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      // 204 status is that a request has succeeded, but client does not need to go to a different page
+      // (200 indicates success and that a newly updated page should be loaded, 201 is for a resource being created)
+      res.status(204).end();
+    });
+  } else {
+    // if there is no session, then the logout request will send back a no resource found status
+    res.status(404).end();
+  }
+})
 
 
 module.exports = router;

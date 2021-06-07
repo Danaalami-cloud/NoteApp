@@ -13,9 +13,8 @@ Entry.init(
       autoIncrement: true,
     },
     entry_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull:false,
-      defaultValue: DataTypes.NOW,
     },
     water: {
         type: DataTypes.INTEGER,
