@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+/* const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Day extends Model {}
@@ -27,4 +27,4 @@ Day.init(
   }
 );
 
-module.exports = Day;
+module.exports = Day; */

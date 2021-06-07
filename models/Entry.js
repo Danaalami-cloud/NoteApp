@@ -12,7 +12,7 @@ Entry.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    current_date: {
+    entry_date: {
       type: DataTypes.DATE,
       allowNull:false,
       defaultValue: DataTypes.NOW,

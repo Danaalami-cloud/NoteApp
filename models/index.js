@@ -1,5 +1,5 @@
 const User = require('./user');
-const Day = require('./Day');
+/* const Day = require('./Day'); */
 const Entry = require('./Entry');
 
 User.hasMany(Entry, {
@@ -10,4 +10,4 @@ Entry.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-module.exports = { User, Day, Entry };
+module.exports = { User,/*  Day, */ Entry };
