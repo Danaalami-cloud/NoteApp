@@ -8,7 +8,8 @@ const entryData = [
     sleep: 360,
     mood: 10,
     user_id: 1,
-    entry_date: "07/06/2021"
+    entry_date: "07/06/2021",
+    notes: "hello my name is freddie 07/0"
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const entryData = [
     sleep: 460,
     mood: 10,
     user_id: 2,
-    entry_date: "07/06/2021"
+    entry_date: "07/06/2021",
+    notes: "hello my name is dana"
   },
   {
     id: 3,
@@ -26,7 +28,8 @@ const entryData = [
     sleep: 260,
     mood: 10,
     user_id: 3,
-    entry_date: "08/06/2021"
+    entry_date: "08/06/2021",
+    notes: "hello my name is jack"
   }
 ];
 

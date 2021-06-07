@@ -96,6 +96,25 @@ const updateMood = async (event) => {
   }
 }
 
+const updateNotes = async (event) => {
+  event.preventDefault();
+  let notes = document.querySelector("#notesInput").value.trim();
+  console.log(notes);
+  if (notes) {
+    console.log(notes)
+    const response = await fetch(`/dashboard/notes/${notes}`, {
+      method: 'PUT',
+      body: JSON.stringify({ notes }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if(response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText)
+    }
+  }
+}
+
 document
   .querySelector('#waterIntakeBtn')
   .addEventListener('click', updateWater);
@@ -111,3 +130,7 @@ document
 document
   .querySelector('#moodBtn')
   .addEventListener('click', updateMood);
+
+  document
+  .querySelector('#notesBtn')
+  .addEventListener('click', updateNotes);

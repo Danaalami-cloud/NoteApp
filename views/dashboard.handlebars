@@ -1,27 +1,27 @@
-<nav class="level">
+<nav class="level navbar backgroundColour">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/dashboard" class="level-item has-text-centered">dashboard</a> |
-        <button class="no-button" id="logout">logout</button>
+        <a href="/dashboard" class="level-item has-text-centered navFont">dashboard</a> |
+        <button class="no-button navFont" id="logout">logout</button>
         {{else}}
-        <a href="/login" class="level-item has-text-centered">dashboard</a> 
-        <h1>NoteApp</h1>
-        <a href="/logout" class="level-item has-text-centered btn-no-style" id="logout">logout</a>
+        <a href="/login" class="level-item has-text-centered navFont">dashboard</a> 
+        <h1 class="logo">NoteApp</h1>
+        <a href="/logout" class="level-item has-text-centered btn-no-style navFont" id="logout">logout</a>
         {{/if}}
 </nav>
 
 <div class="columns">
 
-  <div class="column is-two-fifths container">
+  <div class="column is-two-fifths container ">
 
-    <div class="card">
+    <div>
 
-      <div class="box card-content textAlign is-gapless">
+      <div class="box card-content textAlign backgroundColour">
           <p> Welcome to the NoteApp {{entrys.[0].user.name}}  </p>
           <p>Current date selected: {{format_date entrys.[0].entry_date}}</p>
       </div>
 
-      <div class="card-content textAlign box is-gapless">
+      <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
               <label class="label">How much water did you drink last today?</label>
@@ -43,7 +43,7 @@
           </p>
       </div>
 
-      <div class="card-content textAlign box">
+      <div class="card-content textAlign box backgroundColour">
           <form>
 
             <div class="field">
@@ -67,7 +67,7 @@
           </p>
           </form>   
       </div>
-      <div class="card-content textAlign box">
+      <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
               <label class="label">How much sleep did you get last night?</label>
@@ -86,7 +86,7 @@
           </form> 
       </div>
 
-      <div class="card-content textAlign box">
+      <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
               <label class="label">What was you average mood today?</label>
@@ -133,7 +133,7 @@
 
             <div class="weeks">
 
-              {{!-- <div class="first">
+              <div class="first">
                 <span class="last-month">28</span>
                 <span class="last-month">29</span>
                 <span class="last-month">30</span>
@@ -182,7 +182,7 @@
                 <span>30</span>
                 <span>31</span>
               </div>
- --}}
+
             </div>
             
           </div>
@@ -225,9 +225,13 @@
       </div>
 
     </div>
-    <section class="section">
-      <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
-    </section>
+    
+    <div class="box backgroundColour">
+      <textarea id="notesInput" class="textarea" rows= "11" placeholder="e.g. Hello world">{{entrys.[0].notes}}</textarea>
+       <button id ="notesBtn" class="button is-primary is-fullwidth">Confirm</button>    
+    </div>
+    
+
   </div>
 </div>
 

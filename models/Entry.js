@@ -36,6 +36,11 @@ Entry.init(
         allowNull: true,
         defaultValue: 0
     },
+    notes: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue:"Notes section"
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

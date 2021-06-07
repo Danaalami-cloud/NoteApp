@@ -33,6 +33,7 @@ router.get('/dashboard', withAuth, (req, res) => {
       'exercise',
       'sleep',
       'mood',
+      'notes',
     ],
     include: [
       {
@@ -144,7 +145,29 @@ router.put('/dashboard/mood/:mood', withAuth, (req, res) => {
 });
 
 // PUT Update Mood
-router.get('/dashboard/date/:day', withAuth, async (req, res) => {
+router.put('/dashboard/notes/:notes', withAuth, (req, res) => {
+  Entry.update(req.body,
+      {
+          where: {
+              id: req.session.user_id
+          }
+      }
+  )
+  .then(entryData => {
+      if (!entryData) {
+          res.status(404).json({ message: 'cheer up BITCH' });
+          return;
+      }
+      res.json(entryData);
+  })
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+  });
+});
+
+// PUT Update Mood
+/* router.get('/dashboard/date/:day', withAuth, async (req, res) => {
   try {req.session.user_id
   // date format day/month/year&
   const date = new Date();
@@ -164,7 +187,7 @@ router.get('/dashboard/date/:day', withAuth, async (req, res) => {
       console.log(err);
       res.status(500).json(err)
   };
-});
+}); */
 
 
 
