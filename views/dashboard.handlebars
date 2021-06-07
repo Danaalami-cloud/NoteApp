@@ -1,24 +1,36 @@
+<nav class="level navbar backgroundColour">
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/dashboard" class="level-item has-text-centered navFont">dashboard</a> |
+        <button class="no-button navFont" id="logout">logout</button>
+        {{else}}
+        <a href="/login" class="level-item has-text-centered navFont">dashboard</a> 
+        <h1 class="logo">NoteApp</h1>
+        <a href="/logout" class="level-item has-text-centered btn-no-style navFont" id="logout">logout</a>
+        {{/if}}
+</nav>
+
 <div class="columns">
 
-  <div class="column is-two-fifths container">
+  <div class="column is-two-fifths container ">
 
-    <div class="card">
+    <div>
 
-      <div class="box card-content textAlign is-gapless">
+      <div class="box card-content textAlign backgroundColour">
           <p> Welcome to the NoteApp {{entrys.[0].user.name}}  </p>
           <p>Current date selected: {{format_date entrys.[0].entry_date}}</p>
       </div>
 
-      <div class="card-content textAlign box is-gapless">
+      <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
               <label class="label">How much water did you drink last today?</label>
               <div class="columns">
                 <div class="column is-one-fifth alignRight ">
-                  <input class="input inputWidth" type="email" placeholder="glasses">
+                  <input id ="waterIntake" class="input inputWidth" type="number" placeholder="glasses">
                 </div> 
                 <div class="column alignLeft">
-                  <button class="button is-primary">Confirm</button>
+                  <button id ="waterIntakeBtn" class="button is-primary">Confirm</button>
                 </div>
               </div>
             </div>
@@ -31,7 +43,7 @@
           </p>
       </div>
 
-      <div class="card-content textAlign box">
+      <div class="card-content textAlign box backgroundColour">
           <form>
 
             <div class="field">
@@ -40,11 +52,11 @@
               <div class="columns">
                 
                 <div class="column is-one-fifth alignRight ">
-                  <input class="input inputWidth" type="email" placeholder="minutes">
+                  <input id="exerciseInput" class="input inputWidth " type="number" placeholder="minutes">
                 </div>
                 
                 <div class="column alignLeft">
-                  <button class="button is-primary">Confirm</button>
+                  <button id="exerciseBtn" class="button is-primary ">Confirm</button>
                 </div>
               
               </div>
@@ -55,16 +67,16 @@
           </p>
           </form>   
       </div>
-      <div class="card-content textAlign box">
+      <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
               <label class="label">How much sleep did you get last night?</label>
               <div class="columns">
                 <div class="column is-one-fifth alignRight ">
-                  <input class="input inputWidth" type="email" placeholder="minutes">
+                  <input id="sleepInput" class="input inputWidth" type="number" placeholder="minutes">
                 </div>
                 <div class="column alignLeft">
-                  <button class="button is-primary">Confirm</button>
+                  <button id="sleepBtn" class="button is-primary">Confirm</button>
                 </div>
               </div> 
             </div>
@@ -74,22 +86,25 @@
           </form> 
       </div>
 
-      <div class="card-content textAlign box">
+      <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
               <label class="label">What was you average mood today?</label>
               <div class="columns"> 
                 <div class="column is-one-fifth alignRight ">
-                  <input class="input inputWidth" type="email" placeholder="/10">
+                  <input id="moodInput" class="input inputWidth" type="number" placeholder="/10">
                 </div>      
                 <div class="column alignLeft">
-                  <button class="button is-primary">Confirm</button>
+                  <button id="moodBtn" class="button is-primary">Confirm</button>
                 </div>              
               </div>
             </div>
           <p class="subtitle">
-          You had an aver mood of {{entrys.[0].mood}}/10 today
+          You had an average mood of {{entrys.[0].mood}}/10 today
           </p>
+          {{#if entry}}
+
+          {{/if}}
           </form> 
       </div>    
     </div> 
@@ -98,7 +113,9 @@
   <div class="column is-three-fifths container">
     <div>
       <div class="calendar">
+
         <div class="front">
+
           <div class="current-date">
             <h1>{{entrys.[0].entry_date}}</h1>
           </div>
@@ -115,6 +132,7 @@
             </ul>
 
             <div class="weeks">
+
               <div class="first">
                 <span class="last-month">28</span>
                 <span class="last-month">29</span>
@@ -122,7 +140,7 @@
                 <span class="last-month">31</span>
                 <span>01</span>
                 <span>02</span>
-                <span>03</span>
+                <span><a href='/dashboard/date/03' data-notes='2' data-date="03-06-2021">03</a></span>
               </div>
 
               <div class="second">
@@ -164,8 +182,11 @@
                 <span>30</span>
                 <span>31</span>
               </div>
+
             </div>
+            
           </div>
+
         </div>
 
         <div class="back">
@@ -202,7 +223,18 @@
         </div>
 
       </div>
+
     </div>
+    
+    <div class="box backgroundColour">
+      <textarea id="notesInput" class="textarea" rows= "11" placeholder="e.g. Hello world">{{entrys.[0].notes}}</textarea>
+       <button id ="notesBtn" class="button is-primary is-fullwidth">Confirm</button>    
+    </div>
+    
+
   </div>
 </div>
+
+<script src="/javscript/logout.js"></script>
+<script src="/javscript/dashboard.js"></script>
 

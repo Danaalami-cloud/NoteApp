@@ -13,25 +13,33 @@ Entry.init(
       autoIncrement: true,
     },
     entry_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull:false,
-      defaultValue: DataTypes.NOW,
     },
     water: {
         type: DataTypes.INTEGER,
         allowNull: true,
+        defaultValue: 0
     },
     exercise: {
         type: DataTypes.INTEGER,
         allowNull: true,
+        defaultValue: 0
     },
     sleep: {
         type: DataTypes.INTEGER,
         allowNull: true,
+        defaultValue: 0
     },
     mood: {
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: true,
+        defaultValue: 0
+    },
+    notes: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue:"Notes section"
     },
     user_id: {
       type: DataTypes.INTEGER,

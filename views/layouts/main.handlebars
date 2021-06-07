@@ -10,17 +10,18 @@
     <title>NoteApp</title>
 </head>
 <body>
-    <nav class="level">
+
+    {{!-- <nav class="level">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/dashboard" class="level-item has-text-centered">dashboard</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/dashboard" class="level-item has-text-centered">dashboard</a> 
+        <a href="/login" class="level-item has-text-centered">dashboard</a> 
         <h1>NoteApp</h1>
         <a href="/login" class="level-item has-text-centered">logout</a>
         {{/if}}
-    </nav>  
+    </nav>  --}} 
       {{{body}}} 
 </body>
 </html>
