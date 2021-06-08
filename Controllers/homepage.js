@@ -21,7 +21,7 @@ router.get('/logout', async (req, res) => {
 // A route to render the dashboard page for current date, only for a logged in user
 router.get('/dashboard', withAuth, (req, res) => {
   // All of the users posts are obtained from the database
-  Entry.findOne({
+  Entry.findAll({
     where: {
       // use the ID from the session
       user_id: req.session.user_id,
@@ -55,6 +55,48 @@ router.get('/dashboard', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+// A route to render the dashboard page for current date, only for a logged in user
+router.get('/dashboard/:entry_date', withAuth, (req, res) => {
+    // All of the users posts are obtained from the database
+    Entry.findOne({
+      where: {
+        // use the ID from the session
+        user_id: req.session.user_id,
+        entry_date: req.body.entry_date,
+      },
+      attributes: [
+        'id',
+        'entry_date',
+        'water',
+        'exercise',
+        'sleep',
+        'mood',
+        'notes',
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['name']
+        },
+      ]
+    })
+      .then(entryData => {
+        // serialize data before passing to template
+        /* console.log(entryData[0].water); */
+        const entrys = entryData.map(entry => entry.get({ plain: true }));
+        console.log(entrys); 
+        /* console.log(entryData); */
+        res.render('dashboard', { entrys, loggedIn: true });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+
 
 // PUT Update water intake
 router.put('/dashboard/water/:water', withAuth, (req, res) => {
@@ -189,11 +231,28 @@ router.post('/dashboard/selectedDate/:entry_date', withAuth, (req, res) => {
             return
         }
         res.json(entryData)
+        res.render('/dashboard')
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err)
+    });
+});
+
+router.post('/dashboard/selectedDate/:entry_date', withAuth, (req, res) => {
+    Entry.findOne({
+        where: {
+            entry_date: req.body.normalisedSelectedDate,
+            user_id: req.session.user_id,
+        }
+    }).then(entryData => {
+        res.json(entryData);
+        res.render('dashboard', { entrys, loggedIn: true });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err)
     });
 })
+
 
 
 /* router.get('/dashboard/date/:day', withAuth, async (req, res) => {
