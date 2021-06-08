@@ -18,13 +18,13 @@ router.get('/logout', async (req, res) => {
   res.render('login');
 });
 
-// A route to render the dashboard page, only for a logged in user
+// A route to render the dashboard page for current date, only for a logged in user
 router.get('/dashboard', withAuth, (req, res) => {
   // All of the users posts are obtained from the database
-  Entry.findAll({
+  Entry.findOne({
     where: {
       // use the ID from the session
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
     },
     attributes: [
       'id',
@@ -166,7 +166,36 @@ router.put('/dashboard/notes/:notes', withAuth, (req, res) => {
   });
 });
 
-// PUT Update Mood
+//GET entry data for selected date
+router.post('/dashboard/selectedDate/:entry_date', withAuth, (req, res) => {
+    Entry.findOne({
+        where: {
+            entry_date: req.body.normalisedSelectedDate,
+            user_id: req.session.user_id,
+        }
+    }).then(entryData => {
+        console.log(entryData);
+        if(!entryData) {
+            Entry.create({
+                /* id: req.session.user_id, */
+                entry_date: req.body.normalisedSelectedDate,
+                user_id: req.session.user_id,
+                water: 0,
+                exercise: 0,
+                sleep: 0,
+                mood: 0,
+                notes: "Notes section"
+            }).then(newEntryData => res.json(newEntryData));
+            return
+        }
+        res.json(entryData)
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err)
+    });
+})
+
+
 /* router.get('/dashboard/date/:day', withAuth, async (req, res) => {
   try {req.session.user_id
   // date format day/month/year&
