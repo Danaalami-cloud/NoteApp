@@ -12,29 +12,29 @@
 
 <div class="columns">
 
-  <div class="column is-two-fifths container ">
+  <div class="column is-two-fifths container block">
 
     <div>
 
-      <div class="box card-content textAlign backgroundColour">
-          <p> Welcome to the NoteApp {{entrys.[0].user.name}}  </p>
-          <p>Current date selected: {{format_date entrys.[0].entry_date}}</p>
+      <div class="box card-content textAlign backgroundColour ">
+          <p class="font"> Welcome to the NoteApp {{entrys.[0].user.name}}  </p>
+          <p class="font">Current date selected: {{format_date entrys.[0].entry_date}}</p>
       </div>
 
       <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
-              <label class="label">How much water did you drink last today?</label>
+              <label class="label font">How much water did you drink last today?</label>
               <div class="columns">
                 <div class="column is-one-fifth alignRight ">
                   <input id ="waterIntake" class="input inputWidth" type="number" placeholder="glasses">
                 </div> 
                 <div class="column alignLeft">
-                  <button id ="waterIntakeBtn" class="button is-primary">Confirm</button>
+                  <button id ="waterIntakeBtn" class="button is-primary font">Confirm</button>
                 </div>
               </div>
             </div>
-          <p class="subtitle">
+          <p class="subtitle font">
           You drank {{entrys.[0].water}} glasses of water today
           </p>
           </form> 
@@ -47,7 +47,7 @@
           <form>
 
             <div class="field">
-              <label class="label">How much exercise did you do today?</label>
+              <label class="label font">How much exercise did you do today?</label>
               
               <div class="columns">
                 
@@ -56,13 +56,13 @@
                 </div>
                 
                 <div class="column alignLeft">
-                  <button id="exerciseBtn" class="button is-primary ">Confirm</button>
+                  <button id="exerciseBtn" class="button is-primary font">Confirm</button>
                 </div>
               
               </div>
             
             </div>
-          <p class="subtitle">
+          <p class="subtitle font">
           You did {{entrys.[0].exercise}} minutes of exercise today
           </p>
           </form>   
@@ -70,17 +70,17 @@
       <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
-              <label class="label">How much sleep did you get last night?</label>
+              <label class="label font">How much sleep did you get last night?</label>
               <div class="columns">
                 <div class="column is-one-fifth alignRight ">
                   <input id="sleepInput" class="input inputWidth" type="number" placeholder="minutes">
                 </div>
                 <div class="column alignLeft">
-                  <button id="sleepBtn" class="button is-primary">Confirm</button>
+                  <button id="sleepBtn" class="button is-primary font">Confirm</button>
                 </div>
               </div> 
             </div>
-          <p class="subtitle">
+          <p class="subtitle font">
           You had {{entrys.[0].sleep}} minutes of sleep last night
           </p>
           </form> 
@@ -89,13 +89,13 @@
       <div class="card-content textAlign box backgroundColour">
           <form>
             <div class="field">
-              <label class="label">What was you average mood today?</label>
+              <label class="labe font">What was you average mood today?</label>
               <div class="columns"> 
                 <div class="column is-one-fifth alignRight ">
                   <input id="moodInput" class="input inputWidth" type="number" placeholder="/10">
                 </div>      
                 <div class="column alignLeft">
-                  <button id="moodBtn" class="button is-primary">Confirm</button>
+                  <button id="moodBtn" class="button is-primary font">Confirm</button>
                 </div>              
               </div>
             </div>
@@ -111,7 +111,7 @@
   </div>
   
   <div class="column is-three-fifths container">
-    <div>
+    <div class="marginRight">
       <div class="calendar">
 
         <div class="front">
@@ -121,7 +121,7 @@
           </div>
 
           <div class="current-month">
-            <ul class="week-days">
+            <ul class="week-days ">
               <li>MON</li>
               <li>TUE</li>
               <li>WED</li>
@@ -226,9 +226,9 @@
 
     </div>
     
-    <div class="box backgroundColour">
-      <textarea id="notesInput" class="textarea" rows= "11" placeholder="e.g. Hello world">{{entrys.[0].notes}}</textarea>
-       <button id ="notesBtn" class="button is-primary is-fullwidth">Confirm</button>    
+    <div class="box backgroundColour block noteMargin">
+      <textarea id="notesInput" class="textarea font" rows= "8" placeholder="e.g. Hello world">{{entrys.[0].notes}}</textarea>
+       <button id ="notesBtn" class="button is-primary is-fullwidth font">Confirm</button>    
     </div>
     
 
