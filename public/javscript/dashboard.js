@@ -239,27 +239,44 @@ function populateDates (e) {
 	}
 
 	for (let i = 0; i < amount_days; i++) {
-		const day_element = document.createElement('div');
-		day_element.classList.add('day');
-		day_element.textContent = i + 1;
+		const day_element = document.createElement('div'); //Create the days div depending on the amount of days there are
+		day_element.classList.add('day'); //Add day class from css
+		day_element.textContent = i + 1; //Set the day text content to be equal to i+1 (because i starts at 0)
 
 		if (selectedDay == (i + 1) && selectedYear == year && selectedMonth == month) {
 			day_element.classList.add('selected');
-		}
-
-		day_element.addEventListener('click', function () {
+		} //Adds selected css class to the clicked day
+  
+    //Function to create a selected date when you click on day
+		day_element.addEventListener ('click', async function () {
 			selectedDate = new Date(year + '-' + (month + 1) + '-' + (i + 1));
 			selectedDay = (i + 1);
 			selectedMonth = month;
 			selectedYear = year;
 
-			selected_date_element.textContent = formatDate(selectedDate);
-			selected_date_element.dataset.value = selectedDate;
+			selected_date_element.textContent = formatDate(selectedDate); //Set selected date element 
+			selected_date_element.dataset.value = selectedDate; //Set selected date value
 
+      normalisedSelectedDate = `${selectedDay}` + "-" +`${selectedMonth}` + "-" + `${selectedYear}`
 			populateDates();
+      
+      if (normalisedSelectedDate) {
+        console.log(normalisedSelectedDate)
+        const response = await fetch(`/dashboard/selectedDate/${normalisedSelectedDate}`, {
+          method: 'POST',
+          body: JSON.stringify({ normalisedSelectedDate }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        if(response.ok) {;
+          document.location.replace('/dashboard');
+          console.log("hello")
+        } else {
+          alert(response.statusText)
+        }
+      }
 		});
 
-		days_element.appendChild(day_element);
+		days_element.appendChild(day_element); //Append the day element to the days element
 	}
 }
 
@@ -270,7 +287,6 @@ function checkEventPathForClass (path, selector) {
 			return true;
 		}
 	}
-	
 	return false;
 }
 function formatDate (d) {

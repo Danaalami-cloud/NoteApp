@@ -19,22 +19,18 @@ Entry.init(
     water: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 0
     },
     exercise: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 0
     },
     sleep: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 0
     },
     mood: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: 0
     },
     notes: {
       type: DataTypes.STRING,
