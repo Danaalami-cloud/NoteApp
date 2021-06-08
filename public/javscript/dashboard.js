@@ -154,11 +154,6 @@ next_mth_element.addEventListener('click', goToNextMonth); //Add event listeners
 prev_mth_element.addEventListener('click', goToPrevMonth); //Add event listeners to go to previous month
 
 // FUNCTIONS
-/* function toggleDatePicker (e) {
-	if (!checkEventPathForClass(e.path, 'dates')) {
-		dates_element.classList.toggle('active');
-	}
-} */
 
 //Next month function
 function goToNextMonth (e) {
@@ -268,8 +263,8 @@ function populateDates (e) {
           headers: { 'Content-Type': 'application/json' },
         });
         if(response.ok) {;
-          document.location.replace('/dashboard');
-          console.log("hello")
+          document.location.replace(`/dashboard`);
+          console.log("hello");
         } else {
           alert(response.statusText)
         }
@@ -281,14 +276,6 @@ function populateDates (e) {
 }
 
 // HELPER FUNCTIONS
-function checkEventPathForClass (path, selector) {
-	for (let i = 0; i < path.length; i++) {
-		if (path[i].classList && path[i].classList.contains(selector)) {
-			return true;
-		}
-	}
-	return false;
-}
 function formatDate (d) {
 	let day = d.getDate();
 	if (day < 10) {
