@@ -14,7 +14,7 @@ Entry.init(
     },
     entry_date: {
       type: DataTypes.STRING,
-      allowNull:false,
+      allowNull:true,
     },
     water: {
         type: DataTypes.INTEGER,
