@@ -51,7 +51,7 @@ router.get('/dashboard', withAuth, (req, res) => {
       /* console.log(entryData[0].water); */
       const entrys = entryData.map(entry => entry.get({ plain: true }));
       
-      /* console.log(entryData); */
+      /* console.log(entrys); */
       res.render('dashboard', { entrys, loggedIn: true });
     })
     .catch(err => {
@@ -65,7 +65,7 @@ router.put('/dashboard/water/:water', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-              id: req.session.user_id
+            user_id: req.session.user_id
           }
       }
   )
@@ -87,7 +87,7 @@ router.put('/dashboard/exercise/:exercise', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-              id: req.session.user_id
+            user_id: req.session.user_id
           }
       }
   )
@@ -109,7 +109,7 @@ router.put('/dashboard/sleep/:sleep', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-              id: req.session.user_id
+            user_id: req.session.user_id
           }
       }
   )
@@ -131,7 +131,7 @@ router.put('/dashboard/mood/:mood', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-              id: req.session.user_id
+            user_id: req.session.user_id
           }
       }
   )
@@ -153,7 +153,7 @@ router.put('/dashboard/notes/:notes', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-              id: req.session.user_id
+              user_id: req.session.user_id
           }
       }
   )
@@ -171,22 +171,24 @@ router.put('/dashboard/notes/:notes', withAuth, (req, res) => {
 });
 
 //GET entry data for selected date
-router.post('/dashboard/entry_date/:entry_date', withAuth, async (req, res) => {
+router.get('/dashboard/entry_date/:entry_date', withAuth, async (req, res) => {
     try {
+        console.log(req.params.entry_date)
         const entryData = await Entry.findOne(
             {
                 where: {
                     user_id: req.session.user_id,
-                    entry_date: req.body.entry_date,
+                    entry_date: req.params.entry_date,
                 },
             }
         );
         const entry = entryData.get({plain: true});
-        res.status(200).json(entry);
+        res.render('dashboard', { entrys: [entry], loggedIn: true });
+        /* res.json(entry); */
         console.log(entry);
     } catch (err) {
         res.status(500).json(err);
     }
 });
-       
+ 
 module.exports = router;

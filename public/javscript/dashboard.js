@@ -2,15 +2,18 @@
 const updateWater = async (event) => {
   event.preventDefault();
   let water = document.querySelector('#waterIntake').value.trim();
+  let entry_date = document.querySelector('body > div:nth-child(2) > div.column.is-two-fifths.container.block > div > div:nth-child(1) > p:nth-child(2)').textContent
+  const date = entry_date.split(":")[1].trim()
   console.log(water);
+  console.log(date);
   if (water) {
     const response = await fetch(`/dashboard/water/${water}`, {
       method: 'PUT',
-      body: JSON.stringify({ water }),
+      body: JSON.stringify({ water, }),
       headers: { 'Content-Type': 'application/json' },
     });
     if(response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace(`/dashboard/entry_date/${date}`);
     }
   }
 }
