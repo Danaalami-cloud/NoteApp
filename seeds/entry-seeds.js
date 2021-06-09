@@ -8,7 +8,7 @@ const entryData = [
     sleep: 360,
     mood: 10,
     user_id: 1,
-    entry_date: "07-06-2021",
+    entry_date: "7-6-2021",
     notes: "hello my name is freddie 07/0"
   },
   {
@@ -18,7 +18,7 @@ const entryData = [
     sleep: 460,
     mood: 10,
     user_id: 2,
-    entry_date: "07-06-2021",
+    entry_date: "7-6-2021",
     notes: "hello my name is dana"
   },
   {
@@ -28,9 +28,19 @@ const entryData = [
     sleep: 260,
     mood: 10,
     user_id: 3,
-    entry_date: "08-06-2021",
+    entry_date: "8-6-2021",
     notes: "hello my name is jack"
-  }
+  },
+  {
+    id: 4,
+    water: 8,
+    exercise: 100,
+    sleep: 260,
+    mood: 9,
+    user_id: 1,
+    entry_date: "8-6-2021",
+    notes: "hello my name is freddie 07/0"
+  },
 ];
 
 const seedEntrys = () => Entry.bulkCreate(entryData);
