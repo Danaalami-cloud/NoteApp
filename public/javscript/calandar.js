@@ -164,21 +164,21 @@ const dashboardHandler = async (event) => {
 	let entry_date = document.querySelector('#selectedDate').textContent;
 	/* console.log(entry_date); */
 	//Send response
-      const response = await fetch(`/dashboard/entry_date/${entry_date}`, {
-        method: 'POST',
-        body: JSON.stringify({ entry_date }),
+      /* const response = await fetch(`/dashboard/entry_date/${entry_date}`, {
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
       
       //If ok, load /dashboard page
       if(response.ok) {;
-        /* console.log("hello"); */
+        console.log("hello");
 		console.log(response);
-        /* document.location.replace(`/dashboard`); */
+        document.location.replace(`/dashboard`);
         
       } else {
         alert(response.statusText)
-      }
+      } */
+	  document.location.replace(`/dashboard/entry_date/${entry_date}`);
 }
 
 

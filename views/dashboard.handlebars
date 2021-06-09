@@ -1,15 +1,16 @@
 <nav class="level navbar backgroundColour">
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
+        {{#if req.session.logged_in}}
         <a href="/dashboard" class="level-item has-text-centered navFont">dashboard</a> |
         <button class="no-button navFont" id="logout">logout</button>
         {{else}}
         <a href="/calandar" class="level-item has-text-centered navFont">calandar</a> 
-        <h1 class="logo">NoteApp</h1>
+        <h1 class="logo">xx L00k 4ft4r Y0urs3lf 3000</h1>
         <a href="/logout" class="level-item has-text-centered btn-no-style navFont" id="logout">logout</a>
         {{/if}}
 </nav>
 
+{{#each entrys as |entry|}}
 <div class="columns">
 
   <div class="column is-two-fifths container block">
@@ -35,7 +36,7 @@
               </div>
             </div>
           <p class="subtitle font">
-          You drank  glasses of water today
+          You drank {{water}} glasses of water today
           </p>
           </form> 
           <p class="subtitle">
@@ -63,7 +64,7 @@
             
             </div>
           <p class="subtitle font">
-          You did  minutes of exercise today
+          You did {{exercise}} minutes of exercise today
           </p>
           </form>   
       </div>
@@ -81,7 +82,7 @@
               </div> 
             </div>
           <p class="subtitle font">
-          You had  minutes of sleep last night
+          You had {{sleep}} minutes of sleep last night
           </p>
           </form> 
       </div>
@@ -100,7 +101,7 @@
               </div>
             </div>
           <p class="subtitle">
-          You had an average mood of /10 today
+          You had an average mood of {{mood}}/10 today
           </p>
           {{#if entry}}
 
@@ -119,7 +120,7 @@
 
   </div>
 </div>
-
+{{/each}}
 <script src="/javscript/logout.js"></script>
 <script src="/javscript/dashboard.js"></script>
 
