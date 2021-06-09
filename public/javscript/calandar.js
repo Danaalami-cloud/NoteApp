@@ -179,6 +179,7 @@ const dashboardHandler = async (event) => {
         alert(response.statusText)
       } */
 	  document.location.replace(`/dashboard/entry_date/${entry_date}`);
+	  
 }
 
 

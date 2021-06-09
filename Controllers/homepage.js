@@ -187,10 +187,29 @@ router.get('/dashboard/entry_date/:entry_date', withAuth, async (req, res) => {
                 },
             }
         );
-        const entry = entryData.get({plain: true});
-        res.render('dashboard', { entrys: [entry], loggedIn: true });
-        /* res.json(entry); */
-        console.log(entry);
+
+        if(!entryData) {
+            try {
+                const newEntryData = await Entry.create(
+                    {
+                    user_id: req.session.user_id,
+                    entry_date: req.params.entry_date,
+                    }
+                );
+                const entry = newEntryData ({ plain : true });
+                /* res.render('dashboard', { entrys: [entry], loggedIn: true }); */
+                console.log(entry);
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        } else {
+            const entry = entryData.get({plain: true});
+            res.render('dashboard', { entrys: [entry], loggedIn: true });
+            /* res.json(entry); */
+            console.log(entry); 
+        }
+
+        
     } catch (err) {
         res.status(500).json(err);
     }
