@@ -65,7 +65,8 @@ router.put('/dashboard/water/:water', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -87,7 +88,8 @@ router.put('/dashboard/exercise/:exercise', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -109,7 +111,8 @@ router.put('/dashboard/sleep/:sleep', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -131,7 +134,8 @@ router.put('/dashboard/mood/:mood', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -153,7 +157,8 @@ router.put('/dashboard/notes/:notes', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-              user_id: req.session.user_id
+              user_id: req.session.user_id,
+              entry_date: req.body.date,
           }
       }
   )
