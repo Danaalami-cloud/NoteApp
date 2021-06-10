@@ -18,8 +18,7 @@
   <div class="column is-two-fifths container block">
 
     <div>
-
-
+      
       <div class="box card-content textAlign backgroundColour1 ">
           <p class="font"> Welcome to the NoteApp   </p>
           <p class="font">Current date selected: {{entry_date}}</p>
@@ -38,7 +37,6 @@
                 </div>
               </div>
             </div>
-          </div>
           <p class="subtitle font">
             You drank {{water}} glasses of water today
           </p>
@@ -54,20 +52,15 @@
             <div class="field">
               <label class="label font">How much exercise did you do today?</label>
               
-              <div class="columns">
-                
+              <div class="columns">           
                 <div class="column is-one-fifth alignRight ">
                   <input id="exerciseInput" class="input inputWidth " type="number" placeholder="minutes">
-                </div>
-                
+                </div>   
                 <div class="column alignLeft">
                   <button id="exerciseBtn" class="button font backgroundColour2">Confirm</button>
                 </div>
               </div>
-
             </div>
-
-          </div>
           <p class="subtitle font">
             You did {{exercise}} minutes of exercise today
           </p>
@@ -88,7 +81,6 @@
                 </div>
               </div> 
             </div>
-          </div>
           <p class="subtitle font">
             You had {{sleep}} minutes of sleep last night
           </p>
@@ -112,11 +104,9 @@
           <p class="subtitle font">
           You had an average mood of {{mood}}/10 today
           </p>
-          {{#if entry}}
-
-          {{/if}}
         </form>
       </div>
+
     </div>
   </div>
 
