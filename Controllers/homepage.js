@@ -197,7 +197,7 @@ router.get('/dashboard/entry_date/:entry_date', withAuth, async (req, res) => {
                     }
                 );
                 const entry = newEntryData ({ plain : true });
-                /* res.render('dashboard', { entrys: [entry], loggedIn: true }); */
+                res.render('dashboard', { entrys: [entry], loggedIn: true });
                 console.log(entry);
             } catch (err) {
                 res.status(500).json(err);
