@@ -1,3 +1,4 @@
+
 <nav class="level navbar backgroundColour1">
         <!-- Conditionally render login or logout links -->
         {{#if req.session.logged_in}}
@@ -8,6 +9,7 @@
         <h1 class="logo">xx L00k 4ft4r Y0urs3lf 3000</h1>
         <a href="/logout" class="level-item has-text-centered btn-no-style navFont" id="logout">logout</a>
         {{/if}}
+
 </nav>
 
 {{#each entrys as |entry|}}
@@ -16,6 +18,7 @@
   <div class="column is-two-fifths container block">
 
     <div>
+
 
       <div class="box card-content textAlign backgroundColour1 ">
           <p class="font"> Welcome to the NoteApp   </p>
@@ -35,13 +38,14 @@
                 </div>
               </div>
             </div>
+          </div>
           <p class="subtitle font">
-          You drank {{water}} glasses of water today
+            You drank {{water}} glasses of water today
           </p>
-          </form> 
-          <p class="subtitle">
-          
-          </p>
+        </form>
+        <p class="subtitle">
+
+        </p>
       </div>
 
       <div class="card-content textAlign box backgroundColour1">
@@ -59,15 +63,18 @@
                 <div class="column alignLeft">
                   <button id="exerciseBtn" class="button font backgroundColour2">Confirm</button>
                 </div>
-              
               </div>
-            
+
             </div>
+
+          </div>
           <p class="subtitle font">
-          You did {{exercise}} minutes of exercise today
+            You did {{exercise}} minutes of exercise today
           </p>
-          </form>   
+        </form>
       </div>
+      
+
       <div class="card-content textAlign box backgroundColour1">
           <form>
             <div class="field">
@@ -81,11 +88,13 @@
                 </div>
               </div> 
             </div>
+          </div>
           <p class="subtitle font">
-          You had {{sleep}} minutes of sleep last night
+            You had {{sleep}} minutes of sleep last night
           </p>
-          </form> 
+        </form>
       </div>
+
 
       <div class="card-content textAlign box backgroundColour1">
           <form>
@@ -106,21 +115,21 @@
           {{#if entry}}
 
           {{/if}}
-          </form> 
-      </div>    
-    </div> 
+        </form>
+      </div>
+    </div>
   </div>
-  
+
   <div class="column is-three-fifths container">
+
     <div class="box backgroundColour1 block noteMargin">
       <textarea id="notesInput" class="textarea font" rows= "30" placeholder="e.g. Hello world">{{notes}}</textarea>
        <button id ="notesBtn" class="button is-fullwidth font backgroundColour2 ">Confirm</button>    
     </div>
-    
+
 
   </div>
 </div>
 {{/each}}
 <script src="/javscript/logout.js"></script>
 <script src="/javscript/dashboard.js"></script>
-
