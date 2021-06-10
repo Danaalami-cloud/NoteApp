@@ -214,5 +214,43 @@ router.get('/dashboard/entry_date/:entry_date', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.post('/dashboard/entry_date/:entry_date', withAuth, async (req, res) => {
+    try {
+        console.log(req.params.entry_date)
+        const entryData = await Entry.findOne(
+            {
+                where: {
+                    user_id: req.session.user_id,
+                    entry_date: req.params.entry_date,
+                },
+            }
+        );
+
+        if(!entryData) {
+            try {
+                const newEntryData = await Entry.create(
+                    {
+                    user_id: req.session.user_id,
+                    entry_date: req.params.entry_date,
+                    }
+                );
+                const entry = newEntryData ({ plain : true });
+                console.log(entry);
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        } else {
+            const entry = entryData.get({plain: true});
+            /* res.render('dashboard', { entrys: [entry], loggedIn: true }); */
+            res.json(entry);
+            console.log(entry); 
+        }
+
+        
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
  
 module.exports = router;

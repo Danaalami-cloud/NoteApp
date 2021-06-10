@@ -164,8 +164,8 @@ const dashboardHandler = async (event) => {
 	let entry_date = document.querySelector('#selectedDate').textContent;
 	/* console.log(entry_date); */
 	//Send response
-      /* const response = await fetch(`/dashboard/entry_date/${entry_date}`, {
-        method: 'GET',
+      const response = await fetch(`/dashboard/entry_date/${entry_date}`, {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
       
@@ -176,8 +176,8 @@ const dashboardHandler = async (event) => {
         document.location.replace(`/dashboard`);
         
       } else {
-        alert(response.statusText)
-      } */
+        alert("Date chosen: " + entry_date);
+      }
 	  document.location.replace(`/dashboard/entry_date/${entry_date}`);
 	  
 }
