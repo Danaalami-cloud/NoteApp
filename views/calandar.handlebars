@@ -1,29 +1,29 @@
-<nav class="level navbar backgroundColour">
+<nav class="level navbar backgroundColour1">
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/dashboard" class="level-item has-text-centered navFont">dashboard</a> |
         <button class="no-button navFont" id="logout">logout</button>
         {{else}}
         <a href="/dashboard" class="level-item has-text-centered navFont">dashboard</a> 
-        <h1 class="logo">NoteApp</h1>
+        <h1 class="logo">xx L00k 4ft4r Y0urs3lf 3000</h1>
         <a href="/logout" class="level-item has-text-centered btn-no-style navFont" id="logout">logout</a>
         {{/if}}
 </nav>
 
 <div class="date-picker datePickerMargin">
 
-        <div id = "selectedDate" class="selected-date backgroundColour "></div>
+        <div id = "selectedDate" class="selected-date backgroundColour1 "></div>
 
         <div class="dates active ">
-          <div class="month signInColour">
+          <div class="month backgroundColour2">
             <div class="arrows prev-mth">&lt;</div>
             <div class="mth"></div>
             <div class="arrows next-mth">&gt;</div>
           </div>
 
-          <div class="days backgroundColour "></div>
+          <div class="days backgroundColour1 daysHeight"></div>
         </div> 
 </div>
-<button id ="calandarBtn" class="button is-primary is-fullwidth font signInColour ">Go to selected date</button>   
+<button id ="calandarBtn" class="button is-fullwidth font backgroundColour2 ">Go to selected date</button>   
 
 <script src="/javscript/calandar.js"></script>
