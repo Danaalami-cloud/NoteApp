@@ -65,7 +65,8 @@ router.put('/dashboard/water/:water', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -87,7 +88,8 @@ router.put('/dashboard/exercise/:exercise', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -109,7 +111,8 @@ router.put('/dashboard/sleep/:sleep', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -131,7 +134,8 @@ router.put('/dashboard/mood/:mood', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            entry_date: req.body.date,
           }
       }
   )
@@ -153,7 +157,8 @@ router.put('/dashboard/notes/:notes', withAuth, (req, res) => {
   Entry.update(req.body,
       {
           where: {
-              user_id: req.session.user_id
+              user_id: req.session.user_id,
+              entry_date: req.body.date,
           }
       }
   )
@@ -182,10 +187,29 @@ router.get('/dashboard/entry_date/:entry_date', withAuth, async (req, res) => {
                 },
             }
         );
-        const entry = entryData.get({plain: true});
-        res.render('dashboard', { entrys: [entry], loggedIn: true });
-        /* res.json(entry); */
-        console.log(entry);
+
+        if(!entryData) {
+            try {
+                const newEntryData = await Entry.create(
+                    {
+                    user_id: req.session.user_id,
+                    entry_date: req.params.entry_date,
+                    }
+                );
+                const entry = newEntryData ({ plain : true });
+                res.render('dashboard', { entrys: [entry], loggedIn: true });
+                console.log(entry);
+            } catch (err) {
+                res.status(500).json(err);
+            }
+        } else {
+            const entry = entryData.get({plain: true});
+            res.render('dashboard', { entrys: [entry], loggedIn: true });
+            /* res.json(entry); */
+            console.log(entry); 
+        }
+
+        
     } catch (err) {
         res.status(500).json(err);
     }
