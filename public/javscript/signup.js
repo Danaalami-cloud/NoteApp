@@ -20,7 +20,7 @@ const signupFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/calandar');
       } else {
         alert(response.statusText);
       }
